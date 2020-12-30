@@ -32,6 +32,11 @@ public:
 	float getvid()const { return vid; }
 	void setmed(float median) { med = median;}
 	float getmed()const { return med; }
+	~baze() { paz.clear(); }
+	baze(const baze& studentas);
+	baze& operator=(const baze& studentas); 
 };
+
+
 
 
