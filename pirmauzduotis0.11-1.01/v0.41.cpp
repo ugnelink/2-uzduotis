@@ -35,38 +35,50 @@ int main() {
 			{
 				baze b;
 				cout << "iveskite " << i << "studento varda, pavarde, namu darbu skaiciu, namu darbus, egzamina : ";
-				cin >> b.vardas >> b.pavarde;
-				cin >> b.kiekis; 
-				skaicius_ir_tikr(b.kiekis);
-				for (int j = 0; j < b.kiekis; j++) {
+				string vardas, pavarde;
+				int kiekis;
+				cin >> vardas >> pavarde;
+				b.setvardas(vardas);
+				b.setpavarde(pavarde);
+				cin >> kiekis; 
+				b.setkiekis(kiekis);
+				skaicius_ir_tikr(kiekis);
+				vector <int> paz;
+				float sum = 0;
+				for (int j = 0; j < b.getkiekis(); j++) {
 					float sk;
 					cin >> sk;
 					paz_ir_tikr(sk);
-					
-					b.paz.push_back(sk);
-					b.sum = b.sum + sk;
-					b.paz.reserve(b.kiekis);
-				}
-				cin >> b.egz;
-				paz_ir_tikr(b.egz);
-				
-				b.vid = b.sum / b.kiekis;
+					vector <int> paz;
 
-				sort(b.paz.begin(), b.paz.end());
-				if (b.kiekis % 2 == 1) b.med = b.paz.at((b.kiekis + 1) / 2); else b.med = b.paz.at(b.kiekis / 2) + b.paz.at(((b.kiekis / 2) + 1) / 2);
-				b.galutinisvid = 0.4 * b.vid + 0.6 * b.egz;
-				b.galutinismed = 0.4 * b.med + 0.6 * b.egz;
+					paz.push_back(sk);
+					sum = sum + sk;
+					paz.reserve(kiekis+1);
+					
+				}
+				b.setpaz(paz);
+				float egz;
+				cin >> egz;
+				b.setegz(egz);
+				paz_ir_tikr(egz);
+				
+
+				sort(b.getpaz().begin(), b.getpaz().end());
+				if (b.getkiekis() % 2 == 1) b.setmed(  b.getpaz().at((b.getkiekis() + 1) / 2)); else b.setmed ( b.getpaz().at(b.getkiekis() / 2) + b.getpaz().at(((b.getkiekis() / 2) + 1) / 2));
+				b.setgalutinisvid();
+				b.setgalutinismed();
 				studentai.push_back(b);
-				studentai.reserve(m);
+				studentai.reserve(m+1);
 			}
 			cout << endl;
 			cout << left << setw(15) << setfill(' ') << "vardas" << left << setw(15) << setfill(' ') << "pavarde" << left << setw(15) << setfill(' ') << "galutinisvid" << left << setw(15) << setfill(' ') << "galutinismed" << endl;
 			cout << string(60, '-') << endl;
 			for (auto& a : studentai) {
-				cout << left << setw(15) << setfill(' ') << a.vardas << left << setw(15) << setfill(' ') << a.pavarde << left << setw(15) << setfill(' ') << fixed << setprecision(2) << a.galutinisvid << left << setw(15) << setfill(' ') << fixed << setprecision(2) << a.galutinismed << endl;
+				cout << left << setw(15) << setfill(' ') << a.getvardas() << left << setw(15) << setfill(' ') << a.getpavarde() << left << setw(15) << setfill(' ') << fixed << setprecision(2) << a.getgalutinisvid() << left << setw(15) << setfill(' ') << fixed << setprecision(2) << a.getgalutinismed() << endl;
 			}
 		}
 	}
+	studentai.clear();
 	return (0);
 }
 
