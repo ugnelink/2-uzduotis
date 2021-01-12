@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FUNKCIJOS_H
+#define FUNKCIJOS_H
 #include "trycatch.h"
 #include "baze.h"
 #include <iostream>
@@ -16,3 +17,4 @@ void nuskaitymas(string failas, vector <baze>& studentai);
 void funkcija(string failas, vector <baze> studentai);
 void pirma(vector <baze> studentai, vector <baze>& vargsiukai, vector <baze>& galvociai);
 void padalinimostrategija(vector <baze>& studentai, vector <baze>& vargsiukai);
+#endif
