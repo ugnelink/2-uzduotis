@@ -1,11 +1,12 @@
-#pragma once
+#ifndef BAZE_H
+#define BAZE_H
 #include <iostream>
 #include <iomanip>
 #include <algorithm>
 #include <vector>
 #include <string>
 using namespace std;
-class baze { 
+class baze {
 private:
 	string vardas; string pavarde; float vid; vector< int >paz; int kiekis; float egz; float galutinismed; float galutinisvid; float sum = 0; float med;
 public:
@@ -32,10 +33,13 @@ public:
 	float getvid()const { return vid; }
 	void setmed(float median) { med = median;}
 	float getmed()const { return med; }
-	~baze() { paz.clear(); }
-	baze(const baze& studentas);
-	baze& operator=(const baze& studentas); 
+	~baze() { paz.clear(); } //destruktorius
+	baze(const baze& studentas); // kopijavimo konstruktorius
+	baze& operator=(const baze& studentas); //kopijavimo priskirties operatorius
 };
+#endif
+
+
 
 
 
