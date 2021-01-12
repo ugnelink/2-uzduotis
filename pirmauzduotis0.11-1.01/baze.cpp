@@ -2,16 +2,17 @@
 #include "baze.h"
 baze::baze(const baze& studentas):
 
-	vardas{ studentas.vardas },
+
+    vardas{ studentas.vardas },
 	pavarde{ studentas.pavarde },
-		vid{ studentas.vid },
-		paz{ studentas.paz },
-		kiekis{ studentas.kiekis },
-		egz{ studentas.egz },
-		galutinismed{ studentas.galutinismed },
-		galutinisvid{ studentas.galutinisvid },
-		sum{ studentas.sum },
-		med{ studentas.med }
+    vid{ studentas.vid },
+    paz{ studentas.paz },
+    kiekis{ studentas.kiekis },
+    egz{ studentas.egz },
+    galutinismed{ studentas.galutinismed },
+    galutinisvid{ studentas.galutinisvid },
+    sum{ studentas.sum },
+    med{ studentas.med }
 	 {
 	vardas = studentas.vardas;
 	pavarde = studentas.pavarde;
@@ -44,3 +45,4 @@ baze& baze::operator=(const baze& studentas) {
 
 
 }
+
